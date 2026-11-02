@@ -1,0 +1,27 @@
+{
+  "servers": {
+    "sulcus": {
+      "type": "stdio",
+      "command": "sulcus",
+      "args": ["stdio"],
+      "env": {
+        "SULCUS_SERVER_URL": "https://api.sulcus.ca"
+      }
+    },
+    "sulcus-cloud": {
+      "type": "http",
+      "url": "https://api.sulcus.ca/mcp",
+      "headers": {
+        "Authorization": "Bearer ${input:sulcus_api_key}"
+      }
+    }
+  },
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "sulcus_api_key",
+      "description": "Sulcus API Key (from sulcus.ca)",
+      "password": true
+    }
+  ]
+}
